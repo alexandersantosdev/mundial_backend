@@ -1,0 +1,171 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        padding: 30px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+    }
+
+    .header img {
+        height: 100px;
+        vertical-align: middle;
+        border-radius: 50px;
+    }
+
+    .header h1,
+    h4,
+    h5 {
+        margin-left: 90px;
+        color: rgb(74, 74, 74);
+    }
+
+    .dateAndCode {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .date {
+        color: rgb(74, 74, 74);
+    }
+
+    .code-container {
+        border: 1px solid black;
+        padding: 2px 15px;
+        border-radius: 5px;
+    }
+
+    .dados-section {
+        text-align: justify;
+        line-height: 0.50;
+        font-size: 15px;
+    }
+
+    .cliente {
+        color: rgb(74, 74, 74);
+    }
+
+    .contato {
+        color: rgb(74, 74, 74);
+    }
+
+    .orcamento-section {
+        text-align: center;
+    }
+
+    .itens {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .payment-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .payment {
+        align-content: center;
+        border-collapse: collapse;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    th,
+    td {
+        border: 1px solid #000000;
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .itens td.value {
+        text-align: right;
+        font-size: 14px;
+    }
+
+    footer {
+        position: fixed;
+        height: 50;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+        opacity: 00.1;
+    }
+</style>
+
+<div class="header">
+    <img src="/public/logo.jpeg" alt="Logo" />
+    <div>
+        <h1>Mundial Service e Garden</h1>
+        <h4>Av. Nilza Gelinski de Farias, 1103 - Planta Deodoro, Piraquara/PR, 83304-280 <br>
+            (41) 98718-3317 - deva.mundialservice@gmail.com</h4>
+    </div>
+</div>
+
+
+<div class="dateAndCode">
+    <h2><b>N°:{{number}}</b></h2>
+    <h3 class="date">Piraquara, {{ dateFormated }}</h3>
+</div>
+
+<div class="dados-section">
+    <p><b>Nome: </b>{{client}}</p>
+    <p><b>Telefone: </b>{{phone}}</p>
+    <p>
+        <b>Validade: </b> {{vDateFormated}}
+    </p>
+</div>
+
+<div class="orcamento-section">
+    <h2><b>Orçamento de Produtos e serviços</b></h2>
+    <table class="itens">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>QTD</th>
+                <th>Valor unitário</th>
+                <th>Valor total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td class="product">{{name}}</td>
+                <td>{{quantity}}</td>
+                <td class="value">R${{price}}</td>
+                <td class="value">R${{price}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align: right;">
+                    Total do orçamento: R${{amount}}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+{{#if note}}
+<br />
+<h3><b>Observações</b></h3>
+<p>{{note}}</p>
+{{/if}}
+<br />
+
+<footer>
+    A porta que Deus abre ninguém fecha! <br>
+    Apoc. 3:7-12
+</footer>
