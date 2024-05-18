@@ -31,12 +31,12 @@ export class BudgetService {
 
   async update(id: string, userId: string, updateBudgetDto: UpdateBudgetDto): Promise<Budget> {
     await this.findOne(id, userId);
-    return this.budgetModel.findOneAndUpdate({ _id: id }, updateBudgetDto);
+    return await this.budgetModel.findOneAndUpdate({ _id: id }, updateBudgetDto);
   }
 
   async remove(id: string, userId: string): Promise<void> {
     await this.findOne(id, userId);
-    this.budgetModel.findOneAndDelete({ _id: id });
+    await this.budgetModel.findOneAndDelete({ _id: id });
     return;
   }
 
