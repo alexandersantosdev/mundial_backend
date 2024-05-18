@@ -1,10 +1,9 @@
 import { Controller, Get, Post } from "@nestjs/common";
 
-@Controller('app')
+@Controller()
 export class AppController {
 
-    @Get('ping')
-    @Post('ping')
+    @Get()
     ping() {
         return 'pong';
     }
